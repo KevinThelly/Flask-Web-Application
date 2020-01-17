@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <center>
+        <h3>Yet to Start</h3>
+        <ul class="list-group">
+            {% for i in Tasks %}
+                    <li class="list-group-item"><b>{{i.ID}}</b>{{" " + i.Task + " " + i.Due_By}} <input type="checkbox" ></li>
+            {% endfor %}
+        </ul>
+    </center>  
+    <script>
+        function update(){
+            var value=todo.value;
+
+        }
+    
+    </script>  
+{% endblock %}
