@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% from "includes/_formhelpers.html" import render_field %}
+    <center>
+        <h3>Pending Tasks</h3>
+        <ul class="list-group">
+            {% for i in Tasks %}
+                    <li class="list-group-item"><b>{{i.Due_By}}</b>{{" " + i.Task}} <input type="checkbox" ></li>
+            {% endfor %}
+        </ul>
+    </center>  
+    <script>
+        function update(){
+            var value=todo.value;
+
+        }
+    
+    </script>  
+{% endblock %}

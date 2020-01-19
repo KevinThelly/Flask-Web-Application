@@ -1,19 +1,32 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+{% from "includes/_formhelpers.html" import render_field %}
     <center>
-        <h3>Pending Tasks</h3>
+        <!-- <h3>Pending Tasks</h3> -->
         <ul class="list-group">
             {% for i in Tasks %}
-                    <li class="list-group-item"><b>{{i.Due_By}}</b>{{" " + i.Task}} <input type="checkbox" ></li>
+                    <li class="list-group-item"><b>{{i.Due_By}}</b>{{" " + i.Task}} <input type="checkbox" name="Finished" value={{i.ID}} onclick=""></li>
             {% endfor %}
         </ul>
     </center>  
-    <script>
+    <div class="jumbotron text-center">
+        {% from "includes/_formhelpers.html" import render_field %}
+            <form method="POST" action="/">  
+                <div class="form-group">
+                    {{render_field(form.task, class_="form-control")}}
+                </div>
+                <div class="form-group">
+                        {{render_field(form.date, class_="form-control")}}
+                </div>
+                <p><input type="submit" class="btn btn-primary" value="Update"></p>
+            </form>
+    </div>
+    <!-- <script>
         function update(){
             var value=todo.value;
 
         }
     
-    </script>  
+    </script>   -->
 {% endblock %}
